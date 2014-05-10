@@ -1,0 +1,118 @@
+FORMAT: 1A
+HOST: https://api.shrikeh.net
+
+# Army builder
+Army builder API is a *short texts saving* service similar to its physical paper presence on your table.
+
+
+# Group Faction
+Faction related resources of the **Factions API**
+
+## Factions Collection [{game}/factions]
+### List all Factions [GET]
++ Response 200 (application/hal+json)
++ Parameters
+    + game (required, game, `infinity`) ... String `game` of the Game to query for factions. Has example value.
+    
+    + Headers
+    
+            Link: <https://api.shrikeh.net/infinity/factions>;rel="self"
+    + Body          
+    
+            [{
+                "name": "Human Sphere",
+                
+                "_links": {
+                    "self": {
+                        "href": "/infinity/factions/human-sphere"
+                    },
+                    "children": [{
+                        "href": "/infinity/factions/haqqislam"
+                        "name": "Haqqislam",
+                        "logo": "haqqislam.png"
+                    },
+                    {
+                        "href": "/infinity/factions/panoceania"
+                        "name": "PanOceania",
+                        "logo": "panoceania.png"
+                    },
+                    {
+                        "href": "/infinity/factions/aleph"
+                        "name": "Aleph",
+                        "logo": "aleph.png"
+                    },
+                    {
+                        "href": "/infinity/factions/yu-jing"
+                        "name": "Yu Jing",
+                        "logo": "yu-jing.png"
+                    },
+                    {
+                        "href": "/infinity/factions/ariadna"
+                        "name": "Ariadna",
+                        "logo": "ariadna.png"
+                    }]
+                }
+            },
+            {
+                "name": "Combined Army",
+                "_links": {
+                    "self": {
+                        "href": "/infinity/factions/combined-army"
+                    }
+                },
+                "_embedded": {
+                    "armies": [{
+                        "_links": {
+                            "self": {
+                                "href": "/infinity/factions/combined-army/armies"
+                            },
+                        }
+                    }]
+                }
+            },
+            {
+                "name": Tohaa",
+                "_links": {
+                    "self": {
+                    "href": "/infinity/factions/tohaa"
+                },
+                "_embedded": {
+                    "armies": [{
+                        "_links": {
+                            "self": {
+                                "href": "/infinity/factions/tohaa/armies"
+                            },
+                        }
+                    }]
+                }
+            }]
+
+### Create a Faction [POST]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/hal+json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+## Note [{game}/factions/{faction}]
+A single Faction object with all its details
+
++ Parameters
+    + game (required, game, `dust-warfare`) ... String `game` of the Game to query for factions. Has example value.
+    + faction (required, faction, `ssu`) ... String `faction` of the Faction to perform action with. Has example value.
+
+### Retrieve a Note [GET]
++ Response 200 (application/hal+json)
+
+    
+    + Headers
+            Link: <https://api.shrikeh.net/dust-warfare/factions/ssu>;rel="self"
+
+    + Body
+
+            { "id": 2, "title": "Pick-up posters from post-office" }
+
+### Remove a Note [DELETE]
++ Response 204
