@@ -63,8 +63,13 @@ Game-related resources of the **Games API**
             }
             
 ## Game [/{game}]
-A single Game object with all its details
-### List a Game [GET]
+A single Game resource with all its details.
+The Game resource has the following attributes:
+
+- name
+- description
+
+### Show a Game [GET]
 + Parameters
     + game (required, game, `infinity`) ... String `game` of the Game to query. Has example value.
 + Response 200 (application/hal+json)
