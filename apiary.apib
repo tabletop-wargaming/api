@@ -8,8 +8,8 @@ Army builder API is a *short texts saving* service similar to its physical paper
 # Group Game
 Game-related resources of the **Game API**
 
-## Games Collection [/]
-### List all Games [GET]
+## Index
+### List all available entry points [GET]
 + Response 200 (application/hal+json)
     + Headers
     
@@ -21,7 +21,8 @@ Game-related resources of the **Game API**
             {
                 "_links": {
                     "self": {
-                        "href": "/"
+                        "href": "/",
+                        "title": "Army builder index"
                     },
                     "curies": [{
                         "name": "army-builder",
@@ -34,8 +35,7 @@ Game-related resources of the **Game API**
                     },
                     "army-builder:games": {
                         "title": "Games",
-                        "href": "/games/{game}",
-                        "templated": true
+                        "href": "/games",
                     },
                     "army-builder:manufacturers": {
                         "title": "Manufacturers",
@@ -43,7 +43,36 @@ Game-related resources of the **Game API**
                     }
                 }
             }
-            
+
+## Games Collection [/games]
+### List all available games[GET]
++ Response 200 (application/hal+json)
+    + Headers
+    
+            Link: <https://api.shrikeh.net/games>;rel="self"
+            Last-Modified: Wed, 07 Apr 2014 23:31:27 GMT
+
+    + Body
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "/games",
+                        "title": "Games"
+                    },
+                    "curies": [{
+                        "name": "games",
+                        "href": "https://api.shrikeh.net/docs/{rel}",
+                        "templated": true
+                    }],
+                    "games:game": {
+                        "title": "Games",
+                        "href": "/games/{game}",
+                        "templated": true
+                    }
+                }
+            }
+
 ## Game [/games/{game}]
 A single Game resource with all its details.
 The Game resource has the following attributes:
