@@ -14,11 +14,12 @@ Game-related resources of the **Game API**
     + Headers
     
             Link: <https://api.shrikeh.net/>;rel="self"
+            Last-Modified: Wed, 07 Apr 2014 23:31:27 GMT
 
     + Body
     
             { 
-            "_links": {
+                "_links": {
                     "self": {
                         "href": "/"
                     }
@@ -60,7 +61,8 @@ Game-related resources of the **Game API**
                             }
                         }
                     }
-                }
+                },
+                "total": 3
             }
             
 ## Game [/{game}]
@@ -78,6 +80,7 @@ The Game resource has the following attributes:
     + Headers
     
             Link: <https://api.shrikeh.net/infinity/>;rel="self"
+            Last-Modified: Wed, 07 Jul 2010 23:31:27 GMT
 
     + Body
     
@@ -132,76 +135,83 @@ Faction related resources of the **Factions API**
     + Headers
     
             Link: <https://api.shrikeh.net/infinity/factions>;rel="self"
-    + Body          
+            Last-Modified: Wed, 07 Jul 2010 23:31:27 GMT
+
+    + Body 
     
-            [{
-                "name": "Human Sphere",
-                
-                "_links": {
-                    "self": {
-                        "href": "/infinity/factions/human-sphere"
-                    },
-                    "children": [{
-                        "href": "/infinity/factions/haqqislam"
-                        "name": "Haqqislam",
-                        "logo": "haqqislam.png"
-                    },
-                    {
-                        "href": "/infinity/factions/panoceania"
-                        "name": "PanOceania",
-                        "logo": "panoceania.png"
-                    },
-                    {
-                        "href": "/infinity/factions/aleph"
-                        "name": "Aleph",
-                        "logo": "aleph.png"
-                    },
-                    {
-                        "href": "/infinity/factions/yu-jing"
-                        "name": "Yu Jing",
-                        "logo": "yu-jing.png"
-                    },
-                    {
-                        "href": "/infinity/factions/ariadna"
-                        "name": "Ariadna",
-                        "logo": "ariadna.png"
-                    }]
-                }
-            },
             {
-                "name": "Combined Army",
                 "_links": {
                     "self": {
-                        "href": "/infinity/factions/combined-army"
-                    }
+                        "href": "/infinity/factions"
+                    },
                 },
                 "_embedded": {
-                    "armies": [{
+                    "groupings": [
+                    {
+                        "name": "Human Sphere",
                         "_links": {
                             "self": {
-                                "href": "/infinity/factions/combined-army/armies"
+                                "href": "/infinity/factions/human-sphere"
+                            },
+                            "haqqislam": {
+                                "href": "/infinity/factions/haqqislam"
+                                "name": "Haqqislam"
+                            },
+                            "panoceania": {
+                                "href": "/infinity/factions/panoceania",
+                                "name": "PanOceania"
+                            },
+                            "aleph": {
+                                "href": "/infinity/factions/aleph"
+                                "name": "Aleph"
+                            },
+                            "yu-jing": {
+                                "href": "/infinity/factions/yu-jing"
+                                "name": "Yu Jing"
+                            },
+                            "ariadna": {
+                                "href": "/infinity/factions/ariadna"
+                                "name": "Ariadna"
                             }
+                        }
+                    },
+                    {
+                        "name": "Combined Army",
+                        "_links": {
+                            "self": {
+                                "href": "/infinity/factions/combined-army"
+                            }
+                        },
+                        "_embedded": {
+                            "armies": [{
+                                "_links": {
+                                    "self": {
+                                        "href": "/infinity/factions/combined-army/armies"
+                                    }
+                                }
+                            }]
+                        }
+                    },
+                    {
+                        "name": Tohaa",
+                        "_links": {
+                            "self": {
+                                "href": "/infinity/factions/tohaa"
+                            }
+                        },
+                        "_embedded": {
+                            "armies": [{
+                                "_links": {
+                                    "self": {
+                                        "href": "/infinity/factions/tohaa/armies"
+                                    }
+                                }
+                            }]
                         }
                     }]
                 }
-            },
-            {
-                "name": Tohaa",
-                "_links": {
-                    "self": {
-                        "href": "/infinity/factions/tohaa"
-                    }
-                },
-                "_embedded": {
-                    "armies": [{
-                        "_links": {
-                            "self": {
-                                "href": "/infinity/factions/tohaa/armies"
-                            }
-                        }
-                    }]
-                }
-            }]
+            }
+            
 
 ## Faction [/{game}/factions/{faction}]
 A single Faction object with all its details
@@ -213,11 +223,44 @@ A single Faction object with all its details
     + Headers
     
             Link: <https://api.shrikeh.net/dust-warfare/factions/ssu>;rel="self"
+            Last-Modified: Wed, 07 Jul 2010 23:31:27 GMT
 
     + Body
 
-            { "id": 2, "title": "Pick-up posters from post-office" }
+            {
+                "_links": {
+                    "self": {
+                        "href": "/dust-warfare/factions/ssu"
+                    },
+                    "units": {
+                        "href": "/dust-warfare/factions/ssu/units"
+                    }
+                },
+                "name": "Sino-Soviet Union",
+                "abbreviation": "SSU"
+            }
             
 ### Retrieve a Faction [GET]
 + Response 200 (application/hal+json)
     [Faction][]
+
+# Group Unit
+Unit-related resources of the **Units API**
+## Units Collection [/{game}/units]
+### List all Units [GET]
++ Parameters
+    + game (required, game, `infinity`) ... String `game` of the Game to query for Units. Has example value.
++ Response 200 (application/hal+json)
+    + Headers
+    
+            Link: <https://api.shrikeh.net/infinity/units>;rel="self"
+            Last-Modified: Wed, 07 Jul 2010 23:31:27 GMT
+
+    + Body  
+
+            [{
+                "_links": {
+                    "self": {
+                        "href": "/infinity/units"
+                    },            
+            }]
