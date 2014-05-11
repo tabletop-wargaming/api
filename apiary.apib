@@ -63,17 +63,28 @@ Game-related resources of the **Games API**
             }
             
 ## Game [/{game}]
-A single Faction object with all its details
+A single Game object with all its details
 ### List a Game [GET]
 + Parameters
-    + game (required, game, `infinity`) ... String `game` of the Game to query for factions. Has example value.
+    + game (required, game, `infinity`) ... String `game` of the Game to query. Has example value.
 + Response 200 (application/hal+json)
     + Headers
     
             Link: <https://api.shrikeh.net/infinity/>;rel="self"
     + Body
     
-            {}
+            { 
+                "name": "Infinity",
+                "description": "Infinity is a game with 28mm high metal miniatures that simulates combat and special operations in a science fiction environment with Manga aesthetics. Infinity miniatures are characterized by the high quality and detail of their modeling, the dynamism of their postures and their futuristic aesthetic.",
+                "_links": {
+                    "self": {
+                        "href": "/infinity"
+                    },
+                    "factions": {
+                        "href": "/infinity/factions"
+                    }
+                }
+            }
 
 # Group Faction
 Faction related resources of the **Factions API**
