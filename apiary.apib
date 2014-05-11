@@ -15,17 +15,29 @@ Game-related resources of the **Games API**
             Link: <https://api.shrikeh.net/>;rel="self"
 
     + Body
-    
-            [{
-                "name": "Infinity",
-                "description": "Infinity is a game with 28mm high metal miniatures that simulates combat and special operations in a science fiction environment with Manga aesthetics. Infinity miniatures are characterized by the high quality and detail of their modeling, the dynamism of their postures and their futuristic aesthetic."
-                "logo": "infinity.png"
+            {
                 "_links": {
                     "self": {
-                        "href": "/infinity"
-                    },
+                        "href": "/
+                    }
+                },
+                "_embedded": {
+                    "infinity": {
+                        "name": "Infinity",
+                        "description": "Infinity is a game with 28mm high metal miniatures that simulates combat and special operations in a science fiction environment with Manga aesthetics. Infinity miniatures are characterized by the high quality and detail of their modeling, the dynamism of their postures and their futuristic aesthetic."
+                        "logo": "infinity.png"
+                        "_links": {
+                            "self": {
+                                "href": "/infinity"
+                            },
+                            "factions": {
+                                "href": "/infinity/factions"
+                            }
+                        }
+                    }
                 }
-            }]
+            }
+            
             
 # Group Faction
 Faction related resources of the **Factions API**
