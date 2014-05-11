@@ -50,12 +50,14 @@ This resource does not have any attributes. Instead it offers the initial API af
 
 # Group Game
 Game-related resources of the **Game API**
-## Games Collection [/games{?embed}]
-+ Parameters
 
-    + embed (optional, boolean) ... Whether to embed available games
+## Games Collection [/games{?embed}]
+
+Entry point to list games.
+
+
     
-### List all available games[GET]
+## GET /games
 + Response 200 (application/hal+json)
     + Headers
     
@@ -82,7 +84,11 @@ Game-related resources of the **Game API**
                 }
             }
 
-### GET /games?embed=true
+## GET /games?embed=true
++ Parameters
+
+    + embed (optional, string) ... What resources to embed (if any).
+    
 + Response 200 (application/hal+json)
     + Headers
     
@@ -178,7 +184,8 @@ The Game resource has the following attributes:
             "description": "New description"
         }
         
-+ Response 204
++ Response 200
+    [Game][]
 
 ### Delete a Game [DELETE]
 + Response 204
