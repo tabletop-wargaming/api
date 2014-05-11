@@ -4,7 +4,29 @@ HOST: https://api.shrikeh.net
 # Army builder
 Army builder API is a *short texts saving* service similar to its physical paper presence on your table.
 
+# Group Games
+Game-related resources of the **Games API**
 
+## Games Collection [/]
+### List all Games [GET]
++ Response 200 (application/hal+json)
+    + Headers
+    
+            Link: <https://api.shrikeh.net/>;rel="self"
+
+    + Body
+    
+            [{
+                "name": "Infinity",
+                "description": "Infinity is a game with 28mm high metal miniatures that simulates combat and special operations in a science fiction environment with Manga aesthetics. Infinity miniatures are characterized by the high quality and detail of their modeling, the dynamism of their postures and their futuristic aesthetic."
+                "logo": "infinity.png"
+                "_links": {
+                    "self": {
+                        "href": "/infinity"
+                    },
+                }
+            }]
+            
 # Group Faction
 Faction related resources of the **Factions API**
 
@@ -65,7 +87,7 @@ Faction related resources of the **Factions API**
                         "_links": {
                             "self": {
                                 "href": "/infinity/factions/combined-army/armies"
-                            },
+                            }
                         }
                     }]
                 }
@@ -74,14 +96,15 @@ Faction related resources of the **Factions API**
                 "name": Tohaa",
                 "_links": {
                     "self": {
-                    "href": "/infinity/factions/tohaa"
+                        "href": "/infinity/factions/tohaa"
+                    }
                 },
                 "_embedded": {
                     "armies": [{
                         "_links": {
                             "self": {
                                 "href": "/infinity/factions/tohaa/armies"
-                            },
+                            }
                         }
                     }]
                 }
