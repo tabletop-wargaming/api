@@ -15,17 +15,17 @@ Game-related resources of the **Games API**
             Link: <https://api.shrikeh.net/>;rel="self"
 
     + Body
-            {
-                "_links": {
+    
+            { 
+            "_links": {
                     "self": {
-                        "href": "/
+                        "href": "/"
                     }
                 },
                 "_embedded": {
                     "infinity": {
                         "name": "Infinity",
-                        "description": "Infinity is a game with 28mm high metal miniatures that simulates combat and special operations in a science fiction environment with Manga aesthetics. Infinity miniatures are characterized by the high quality and detail of their modeling, the dynamism of their postures and their futuristic aesthetic."
-                        "logo": "infinity.png"
+                        "description": "Infinity is a game with 28mm high metal miniatures that simulates combat and special operations in a science fiction environment with Manga aesthetics. Infinity miniatures are characterized by the high quality and detail of their modeling, the dynamism of their postures and their futuristic aesthetic.",
                         "_links": {
                             "self": {
                                 "href": "/infinity"
@@ -34,10 +34,33 @@ Game-related resources of the **Games API**
                                 "href": "/infinity/factions"
                             }
                         }
+                    },
+                    "x-wing": {
+                        "name": "X-Wing",
+                        "description": "Control the most advanced starfighters and outstanding pilots in the galaxy! In X-Wing Miniatures Game, you take the role of squad leader and command a group of merciless Imperial or daring Rebel pilots in furious ship-to-ship space combat. Featuring stunningly detailed and painted miniatures, X-Wing recreates exciting Star Wars space battles from small engagements of only a couple of crafts, to large conflicts where multiple squadrons clash. Select and equip your ships, pick your crew, plan your attack, and complete your mission.",
+                        "_links": {
+                            "self": {
+                                "href": "/x-wing"
+                            },
+                            "factions": {
+                                "href": "/x-wing/factions"
+                            }
+                        }
+                    },
+                    "dust-warfare: {
+                        "name": "Dust Warfare",
+                        "description": Dust Warfare is a tabletop wargame designed by Andy Chambers and Mack Martin in which players take command of elite soldiers, awesome combat walkers, and inspiring heroes on the battlefronts of World War II. In this accessible and thrilling game, opposing generals craft strategies and execute tactics as they fight for victory.\n\nIn Dust Warfare, you’ll build and customize an army and lead them in engaging and interactive battles. Hand-select your forces for each engagement, and deploy them in intense missions that test your skill as a field commander. With its flexible rules, you can interrupt your opponent’s turn, reacting to his movements or attacks. Feign assaults, outsmart the enemy, and lure him into exposing his plans.",
+                        "_links": {
+                            "self": {
+                                "href": "/dust-warfare"
+                            },
+                            "factions": {
+                                "href": "/dust-warfare/factions"
+                            }
+                        }
                     }
                 }
             }
-            
             
 # Group Faction
 Faction related resources of the **Factions API**
