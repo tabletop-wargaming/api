@@ -19,9 +19,6 @@ Game-related resources of the **Game API**
     + Body
 
             {
-                "tbl:latest-posts": {
-                    "href": "/posts/latest"
-                },
                 "_links": {
                     "self": {
                         "href": "/"
@@ -31,17 +28,14 @@ Game-related resources of the **Game API**
                         "href": "https://api.shrikeh.net/docs/{rel}",
                         "templated": true
                     }],
-                    "game:infinity": {
-                        "title": "Infinity",
-                        "href": "/infinity"
+                    "game:status": {
+                        "href": "/status",
+                        "title": "Status"
                     },
-                    "game:x-wing": {
-                        "title": "X-Wing",
-                        "href": "/x-wing"
-                    },
-                    "game:dust-warfare": {
-                        "title": "Dust Warfare",
-                        "href": "/dust-warfare"
+                    "game:builders": {
+                        "title": "Builders",
+                        "href": "/{builder}"
+                        "templated": true
                     }
                 }
             }
