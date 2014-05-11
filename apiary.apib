@@ -108,7 +108,6 @@ The Game resource has the following attributes:
 
 ### Show a Game [GET]
 + Response 200
-
     [Game][]
     
 ### Edit a Game [PATCH]
@@ -206,11 +205,11 @@ Faction related resources of the **Factions API**
 
 ## Faction [/{game}/factions/{faction}]
 A single Faction object with all its details
-### Retrieve a Faction [GET]
+
 + Parameters
     + game (required, game, `dust-warfare`) ... String `game` of the Game to query for factions. Has example value.
     + faction (required, faction, `ssu`) ... String `faction` of the Faction to perform action with. Has example value.
-+ Response 200 (application/hal+json)
++ Model (application/hal+json)
     + Headers
     
             Link: <https://api.shrikeh.net/dust-warfare/factions/ssu>;rel="self"
@@ -218,3 +217,7 @@ A single Faction object with all its details
     + Body
 
             { "id": 2, "title": "Pick-up posters from post-office" }
+            
+### Retrieve a Faction [GET]
++ Response 200 (application/hal+json)
+    [Faction][]
