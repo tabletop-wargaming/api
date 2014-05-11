@@ -6,13 +6,17 @@ HOST: https://api.shrikeh.net
 Army builder API is a *short texts saving* service similar to its physical paper presence on your table.
 
 ## Army Builder API Root [/{?embedgames}]
-    
 Army builder API entry point.
 
 This resource does not have any attributes. Instead it offers the initial API affordances in the form of the HTTP Link header and HAL links.
 You may optionally ask for available games to be embedded.
 
-### Retrieve Entry Point [GET /]
++ Parameters
+
+    + embedgames (optional, boolean) ... Whether to embed available games
+    
+
+### GET /
     
 + Response 200 (application/hal+json)
     + Headers
@@ -48,7 +52,8 @@ You may optionally ask for available games to be embedded.
                 }
             }
 
-### Retrieve Entry Point [GET /?embedgames=true]
+### GET /?embedgames=true
+
 + Response 200 (application/hal+json)
 
     + Headers
