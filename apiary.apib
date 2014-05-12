@@ -51,10 +51,13 @@ This resource does not have any attributes. Instead it offers the initial API af
 # Group Game
 Game-related resources of the **Game API**
 
-## Games Collection [/games]
+## Games Collection [/games{#entities}]
 
-Entry point to list games.
-    
+Entry point to list games.                 
++ Parameters
+
+    + game (optional, string) ... What resources to embed (if any). Comma-separated list.
+
 ### GET
 + Response 200 (application/hal+json)
     + Headers
@@ -75,22 +78,22 @@ Entry point to list games.
                         "href": "https://api.shrikeh.net/docs/{rel}",
                         "templated": true
                     }],
-                    "games:game": {
-                        "href": "/games/{game}",
-                        "templated": true
+                    "games:infinity": {
+                        "href": "/games/infinity",
+                        "title": "Infinity"
+                    },
+                    "games:dust-warfare": {
+                        "href": "/games/dust-warfare",
+                        "title": "Dust Warfare"
                     }
                 }
             }
 
 ### GET /games#game
-+ Parameters
-
-    + game (optional, string) ... What resources to embed (if any). Comma-separated list.
-    
 + Response 200 (application/hal+json)
     + Headers
     
-            Link: <https://api.shrikeh.net/games?embed=game;rel="self"
+            Link: <https://api.shrikeh.net/games#game;rel="self"
             Last-Modified: Wed, 07 Apr 2014 23:31:27 GMT
 
     + Body
@@ -100,8 +103,14 @@ Entry point to list games.
                     "self": {
                         "href": "/games?embed=game",
                         "title": "Games"
-                    }
+                    },
+                    "curies": [{
+                        "name": "games",
+                        "href": "https://api.shrikeh.net/docs/{rel}",
+                        "templated": true
+                    }],
                 },
+                
                 "_embedded": {
                     "infinity" : {
                         "name": "Infinity",
@@ -125,6 +134,82 @@ Entry point to list games.
                             "factions": {
                                 "href": "/games/dust-warfare/factions"
                             }
+                        }
+                    }
+                }
+            }
+
+### GET /games#game.factions
++ Response 200 (application/hal+json)
+    + Headers
+    
+            Link: <https://api.shrikeh.net/games#game.factions;rel="self"
+            Last-Modified: Wed, 07 Apr 2014 23:31:27 GMT
+
+    + Body
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "/games#game.factions",
+                        "title": "Games"
+                    }
+                },
+                "_embedded": {
+                    "infinity" : {
+                        "name": "Infinity",
+                        "description": "Infinity is a game with 28mm high metal miniatures that simulates combat and special operations in a science fiction environment with Manga aesthetics. Infinity miniatures are characterized by the high quality and detail of their modeling, the dynamism of their postures and their futuristic aesthetic.",
+                        "_links": {
+                            "self": {
+                                "href": "/games/infinity"
+                            },
+                        "_embedded": {
+                            "tohaa": {
+                                "name": Tohaa",
+                                "_links": {
+                                "self": {
+                                    "href": "/games/infinity/factions/tohaa"
+                                }
+                            }
+                            "tohaa": {
+                                "name": Tohaa",
+                                "_links": {
+                                "self": {
+                                    "href": "/games/infinity/factions/tohaa"
+                                }
+                            }
+                        }
+                    },
+                    "dust-warfare" : {
+                        "name": "Dust Warfare",
+                        "description": "Infinity is a game with 28mm high metal miniatures that simulates combat and special operations in a science fiction environment with Manga aesthetics. Infinity miniatures are characterized by the high quality and detail of their modeling, the dynamism of their postures and their futuristic aesthetic.",
+                        "_links": {
+                            "self": {
+                                "href": "/games/dust-warfare"
+                            }
+                        },
+                        "_embedded": {
+                            "name": "Allies",
+                                "_links": {
+                                "self": {
+                                    "href": "/games/dust-warfare/factions/allies"
+                                }
+                            },                       
+                            "axis": {
+                                "name": "Axis",
+                                "_links": {
+                                "self": {
+                                    "href": "/games/dust-warfare/factions/axis"
+                                }
+                            },
+                            "ssu": {
+                                "name": "Sino-Soviet Union",
+                                "_links": {
+                                "self": {
+                                    "href": "/games/dust-warfare/factions/ssu"
+                                }
+                            }
+
                         }
                     }
                 }
