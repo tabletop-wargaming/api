@@ -51,12 +51,12 @@ This resource does not have any attributes. Instead it offers the initial API af
 # Group Game
 Game-related resources of the **Game API**
 
-## Games Collection [/games{#entities}]
+## Games Collection [/games{?embed}]
 
 Entry point to list games.                 
 + Parameters
 
-    + game (optional, string) ... What resources to embed (if any). Comma-separated list.
+    + embed (optional, string) ... What resources to embed (if any). Comma-separated list.
 
 ### GET
 + Response 200 (application/hal+json)
@@ -89,7 +89,7 @@ Entry point to list games.
                 }
             }
 
-### GET /games#game
+### GET /games?embed=game
 + Response 200 (application/hal+json)
     + Headers
     
@@ -139,7 +139,7 @@ Entry point to list games.
                 }
             }
 
-### GET /games#game.factions
+### GET /games?embed=game.factions
 + Response 200 (application/hal+json)
     + Headers
     
