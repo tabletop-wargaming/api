@@ -108,9 +108,8 @@ Entry point to list games.
                         "name": "games",
                         "href": "https://api.shrikeh.net/docs/{rel}",
                         "templated": true
-                    }],
+                    }]
                 },
-                
                 "_embedded": {
                     "infinity" : {
                         "name": "Infinity",
@@ -143,7 +142,7 @@ Entry point to list games.
 + Response 200 (application/hal+json)
     + Headers
     
-            Link: <https://api.shrikeh.net/games#game.factions;rel="self"
+            Link: <https://api.shrikeh.net/games?embed=game.factions;rel="self"
             Last-Modified: Wed, 07 Apr 2014 23:31:27 GMT
 
     + Body
