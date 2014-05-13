@@ -33,12 +33,12 @@ This resource does not have any attributes. Instead it offers the initial API af
                         "title": "Status",
                         "href": "/status"
                     },
-                    "army-builder:games": {
-                        "title": "Games",
-                        "href": "/games"
+                    "army-builder:systems": {
+                        "title": "Systems",
+                        "href": "/systems"
                     },
-                    "army-builder:game": {
-                        "href": "/games/{game}",
+                    "army-builder:system": {
+                        "href": "/systems/{system}",
                         "templated": true
                     }
                     "army-builder:manufacturers": {
@@ -48,12 +48,12 @@ This resource does not have any attributes. Instead it offers the initial API af
                 }
             }
 
-# Group Game
-Game-related resources of the **Game API**
+# Group System
+Game system-related resources of the **System API**
 
-## Games Collection [/games{?embed}]
+## System Collection [/systems{?embed}]
 
-Entry point to list games.                 
+Entry point to list game systems.                 
 + Parameters
 
     + embed (optional, string) ... What resources to embed (if any). Comma-separated list.
@@ -62,7 +62,7 @@ Entry point to list games.
 + Response 200 (application/hal+json)
     + Headers
     
-            Link: <https://api.shrikeh.net/games>;rel="self"
+            Link: <https://api.shrikeh.net/systems>;rel="self"
             Last-Modified: Wed, 07 Apr 2014 23:31:27 GMT
 
     + Body
@@ -70,30 +70,30 @@ Entry point to list games.
             {
                 "_links": {
                     "self": {
-                        "href": "/games",
-                        "title": "Games"
+                        "href": "/systems",
+                        "title": "Game Systems"
                     },
                     "curies": [{
-                        "name": "games",
+                        "name": "systems",
                         "href": "https://api.shrikeh.net/docs/{rel}",
                         "templated": true
                     }],
-                    "games:infinity": {
-                        "href": "/games/infinity",
+                    "systems:infinity": {
+                        "href": "/systems/infinity",
                         "title": "Infinity"
                     },
-                    "games:dust-warfare": {
-                        "href": "/games/dust-warfare",
+                    "systems:dust-warfare": {
+                        "href": "/systems/dust-warfare",
                         "title": "Dust Warfare"
                     }
                 }
             }
 
-### GET /games?embed=game
+### GET /systems?embed=game
 + Response 200 (application/hal+json)
     + Headers
     
-            Link: <https://api.shrikeh.net/games#game;rel="self"
+            Link: <https://api.shrikeh.net/systems?embed=system;rel="self"
             Last-Modified: Wed, 07 Apr 2014 23:31:27 GMT
 
     + Body
@@ -101,11 +101,11 @@ Entry point to list games.
             {
                 "_links": {
                     "self": {
-                        "href": "/games?embed=game",
-                        "title": "Games"
+                        "href": "/systems?embed=game",
+                        "title": "Game Systems"
                     },
                     "curies": [{
-                        "name": "games",
+                        "name": "systems",
                         "href": "https://api.shrikeh.net/docs/{rel}",
                         "templated": true
                     }]
@@ -116,10 +116,10 @@ Entry point to list games.
                         "description": "Infinity is a game with 28mm high metal miniatures that simulates combat and special operations in a science fiction environment with Manga aesthetics. Infinity miniatures are characterized by the high quality and detail of their modeling, the dynamism of their postures and their futuristic aesthetic.",
                         "_links": {
                             "self": {
-                                "href": "/games/infinity"
+                                "href": "/systems/infinity"
                             },
                             "factions": {
-                                "href": "/games/infinity/factions"
+                                "href": "/systems/infinity/factions"
                             }
                         }
                     },
@@ -128,10 +128,10 @@ Entry point to list games.
                         "description": "Infinity is a game with 28mm high metal miniatures that simulates combat and special operations in a science fiction environment with Manga aesthetics. Infinity miniatures are characterized by the high quality and detail of their modeling, the dynamism of their postures and their futuristic aesthetic.",
                         "_links": {
                             "self": {
-                                "href": "/games/dust-warfare"
+                                "href": "/systems/dust-warfare"
                             },
                             "factions": {
-                                "href": "/games/dust-warfare/factions"
+                                "href": "/systems/dust-warfare/factions"
                             }
                         }
                     }
@@ -150,8 +150,8 @@ Entry point to list games.
             {
                 "_links": {
                     "self": {
-                        "href": "/games?embed=game.factions",
-                        "title": "Games"
+                        "href": "/system?embed=system.factions",
+                        "title": "Game Systems"
                     }
                 },
                 "_embedded": {
@@ -161,7 +161,7 @@ Entry point to list games.
                         "_links": {
                             "self": {
                                 "title": "Infinity",
-                                "href": "/games/infinity"
+                                "href": "/systems/infinity"
                             }
                         },
                         "_embedded": {
@@ -170,7 +170,7 @@ Entry point to list games.
                                 "_links": {
                                     "self": {
                                         "title": "Combined Army",
-                                        "href": "/games/infinity/factions/combined-army"
+                                        "href": "/systems/infinity/factions/combined-army"
                                     }
                                 }
                             },
@@ -179,7 +179,7 @@ Entry point to list games.
                                 "_links": {
                                     "self": {
                                         "title": "Tohaa",
-                                        "href": "/games/infinity/factions/tohaa"
+                                        "href": "/systems/infinity/factions/tohaa"
                                     }
                                 }
                             }
@@ -191,7 +191,7 @@ Entry point to list games.
                         "_links": {
                             "self": {
                                 "title": "Dust Warfare",
-                                "href": "/games/dust-warfare"
+                                "href": "/systems/dust-warfare"
                             }
                         },
                         "_embedded": {
@@ -200,7 +200,7 @@ Entry point to list games.
                                 "_links": {
                                     "self": {
                                         "title": "Allies",
-                                        "href": "/games/dust-warfare/factions/allies"
+                                        "href": "/systems/dust-warfare/factions/allies"
                                     }
                                 }  
                             },
@@ -209,7 +209,7 @@ Entry point to list games.
                                 "_links": {
                                     "self": {
                                         "title": "Axis",
-                                        "href": "/games/dust-warfare/factions/axis"
+                                        "href": "/systems/dust-warfare/factions/axis"
                                     }
                                 }
                             },
@@ -218,7 +218,7 @@ Entry point to list games.
                                 "_links": {
                                     "self": {
                                         "title": "SSU",
-                                        "href": "/games/dust-warfare/factions/ssu"
+                                        "href": "/systems/dust-warfare/factions/ssu"
                                     }
                                 }
                             }
@@ -227,20 +227,20 @@ Entry point to list games.
                 }
             }
 
-## Game [/games/{game}]
-A single Game resource with all its details.
-The Game resource has the following attributes:
+## Game [/systems/{system}]
+A single System resource with all its details.
+The System resource has the following attributes:
 
 - name
 - description
 + Parameters
-    + game (required, game, `infinity`) ... String `game` of the Game to query. Has example value.
+    + system (required, system, `infinity`) ... String `system` of the System to query. Has example value.
     
 + Model (application/hal+json)
-    HAL+JSON representation of Game Resource. In addition to representing its state in the JSON form it offers affordances in the form of the HTTP Link header and HAL links.
+    HAL+JSON representation of System Resource. In addition to representing its state in the JSON form it offers affordances in the form of the HTTP Link header and HAL links.
     + Headers
     
-            Link: <https://api.shrikeh.net/games/infinity/>;rel="self"
+            Link: <https://api.shrikeh.net/system/infinity/>;rel="self"
             Last-Modified: Wed, 07 Jul 2010 23:31:27 GMT
 
     + Body
@@ -251,11 +251,11 @@ The Game resource has the following attributes:
                 "_links": {
                     "self": {
                         "title": "Infinity",
-                        "href": "/games/infinity"
+                        "href": "/systems/infinity"
                     },
                     "factions": {
                         "title": "Infinity: Factions"
-                        "href": "/games/infinity/factions"
+                        "href": "/systems/infinity/factions"
                     }
                 },
                 "_embedded": {
@@ -292,14 +292,14 @@ The Game resource has the following attributes:
 
 # Group Faction
 Faction related resources of the **Factions API**
-## Factions Collection [/games/{game}/factions]
+## Factions Collection [/systems/{system}/factions]
 ### List all Factions [GET]
 + Parameters
-    + game (required, game, `infinity`) ... String `game` of the Game to query for factions. Has example value.
+    + system (required, system, `infinity`) ... String `system` of the System to query for factions. Has example value.
 + Response 200 (application/hal+json)
     + Headers
     
-            Link: <https://api.shrikeh.net/games/infinity/factions>;rel="self"
+            Link: <https://api.shrikeh.net/system/infinity/factions>;rel="self"
             Last-Modified: Wed, 07 Jul 2010 23:31:27 GMT
 
     + Body 
@@ -308,7 +308,7 @@ Faction related resources of the **Factions API**
                 "_links": {
                     "self": {
                         "title": "Infinity: Factions",
-                        "href": "/games/infinity/factions"
+                        "href": "/system/infinity/factions"
                     },
                 },
                 "_embedded": {
@@ -318,27 +318,27 @@ Faction related resources of the **Factions API**
                         "_links": {
                             "self": {
                                 "title": "Human Sphere",
-                                "href": "/games/infinity/factions/human-sphere",
+                                "href": "/systems/infinity/factions/human-sphere",
                             },
                             "haqqislam": {
                                 "title": "Haqqislam",
-                                "href": "/games/infinity/factions/haqqislam"
+                                "href": "/systems/infinity/factions/haqqislam"
                             },
                             "panoceania": {
                                 "title": "PanOceania",
-                                "href": "/games/infinity/factions/panoceania"
+                                "href": "/systems/infinity/factions/panoceania"
                             },
                             "aleph": {
                                 "title": "Aleph",
-                                "href": "/games/infinity/factions/aleph"
+                                "href": "/systems/infinity/factions/aleph"
                             },
                             "yu-jing": {
                                 "title": "Yu Jing",
-                                "href": "/games/infinity/factions/yu-jing"
+                                "href": "/systems/infinity/factions/yu-jing"
                             },
                             "ariadna": {
                                 "title": "Ariadna",
-                                "href": "/games/infinity/factions/ariadna"
+                                "href": "/systems/infinity/factions/ariadna"
                             }
                         }
                     },
@@ -347,14 +347,14 @@ Faction related resources of the **Factions API**
                         "_links": {
                             "self": {
                                 "title": "Combined Army",
-                                "href": "/games/infinity/factions/combined-army"
+                                "href": "/system/infinity/factions/combined-army"
                             }
                         },
                         "_embedded": {
                             "armies": [{
                                 "_links": {
                                     "self": {
-                                        "href": "/games/infinity/factions/combined-army/armies"
+                                        "href": "/systems/infinity/factions/combined-army/armies"
                                     }
                                 }
                             }]
@@ -365,14 +365,14 @@ Faction related resources of the **Factions API**
                         "_links": {
                             "self": {
                                 "title": "Tohaa",
-                                "href": "/games/infinity/factions/tohaa"
+                                "href": "/systems/infinity/factions/tohaa"
                             }
                         },
                         "_embedded": {
                             "armies": [{
                                 "_links": {
                                     "self": {
-                                        "href": "/games/infinity/factions/tohaa/armies"
+                                        "href": "/systems/infinity/factions/tohaa/armies"
                                     }
                                 }
                             }]
@@ -382,16 +382,16 @@ Faction related resources of the **Factions API**
             }
             
 
-## Faction [/games/{game}/factions/{faction}]
+## Faction [/systems/{system}/factions/{faction}]
 A single Faction object with all its details
 
 + Parameters
-    + game (required, game, `dust-warfare`) ... String `game` of the Game to query for factions. Has example value.
+    + system (required, system, `dust-warfare`) ... String `system` of the System to query for factions. Has example value.
     + faction (required, faction, `ssu`) ... String `faction` of the Faction to perform action with. Has example value.
 + Model (application/hal+json)
     + Headers
     
-            Link: <https://api.shrikeh.net/games/dust-warfare/factions/ssu>;rel="self"
+            Link: <https://api.shrikeh.net/systems/dust-warfare/factions/ssu>;rel="self"
             Last-Modified: Wed, 07 Jul 2010 23:31:27 GMT
 
     + Body
@@ -400,11 +400,11 @@ A single Faction object with all its details
                 "_links": {
                     "self": {
                         "title": "Sino-Soviet Union"
-                        "href": "/games/dust-warfare/factions/ssu"
+                        "href": "/systems/dust-warfare/factions/ssu"
                     },
                     "units": {
                         "title": "Sino-Soviet Union: Units",
-                        "href": "/games/dust-warfare/factions/ssu/units"
+                        "href": "/systems/dust-warfare/factions/ssu/units"
                     }
                 },
                 "name": "Sino-Soviet Union",
@@ -417,14 +417,14 @@ A single Faction object with all its details
 
 # Group Unit
 Unit-related resources of the **Units API**
-## Units Collection [/games/{game}/units]
+## Units Collection [/systems/{system}/units]
 ### List all Units [GET]
 + Parameters
-    + game (required, game, `infinity`) ... String `game` of the Game to query for Units. Has example value.
+    + system (required, system, `infinity`) ... String `system` of the System to query for Units. Has example value.
 + Response 200 (application/hal+json)
     + Headers
     
-            Link: <https://api.shrikeh.net/games/infinity/units>;rel="self"
+            Link: <https://api.shrikeh.net/systems/infinity/units>;rel="self"
             Last-Modified: Wed, 07 Jul 2010 23:31:27 GMT
 
     + Body  
@@ -433,6 +433,6 @@ Unit-related resources of the **Units API**
                 "_links": {
                     "self": {
                         "title": "Infinity: Units",
-                        "href": "/games/infinity/units"
+                        "href": "/systems/infinity/units"
                     },            
             }]
